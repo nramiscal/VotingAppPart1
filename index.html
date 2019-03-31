@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <style>
+            * {
+                /* outline: 1px solid red; */
+            }
+
+            #app {
+                margin-left: 450px;
+            }
+
+            .library {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .circle {
+                border-radius: 50%;
+                box-sizing: border-box;
+                padding: 10px;
+                font-size: 30px;
+                width: 58px;
+                height: 58px;
+                border: 3px solid black;
+                display: inline-block;
+            }
+
+            .plusSign {
+              width: 56px;
+              height: 56px;
+              background-color: #fff;
+              position: relative;
+              display: inline-block;
+            }
+
+            .bar {
+              margin: 0 auto;
+              position: absolute;
+              background-color: LimeGreen;
+            }
+
+            .horizontal {
+              width: 70%;
+              height: 20%;
+              left: 15%;
+              top: 40%;
+
+            }
+
+            .vertical {
+              width: 20%;
+              height: 70%;
+              left: 40%;
+              top: 15%;
+            }
+
+        </style>
+        <script src="node_modules/react/umd/react.development.js"></script>
+        <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <meta charset="utf-8">
+        <title>Voting App Part 1</title>
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script type="text/babel">
+
+            const circleReact = <div className="circle">15</div>
+            const circleVue = <div className="circle">12</div>
+            const circleAngular = <div className="circle">9</div>
+            const circleEmber = <div className="circle">4</div>
+
+            const reactProps = { onClick() { alert('You clicked React!'); }}
+            const vueProps = { onClick() { alert('You clicked Vue!'); }}
+            const angularProps = { onClick() { alert('You clicked Angular!'); }}
+            const emberProps = { onClick() { alert('You clicked Ember!'); }}
+
+            const plusReact = <div className='plusSign react'>
+              <div className="bar horizontal"></div>
+              <div className="bar vertical"></div></div>
+
+            const plusVue = <div className='plusSign vue'>
+              <div className="bar horizontal"></div>
+              <div className="bar vertical"></div></div>
+
+            const plusAngular = <div className='plusSign angular'>
+              <div className="bar horizontal"></div>
+              <div className="bar vertical"></div></div>
+
+            const plusEmber = <div className='plusSign ember'>
+              <div className="bar horizontal"></div>
+              <div className="bar vertical"></div></div>
+
+            const reactPlusEvent = React.createElement('div', reactProps, plusReact);
+
+            const vuePlusEvent = React.createElement('div', vueProps, plusVue);
+
+            const angularPlusEvent = React.createElement('div', angularProps, plusAngular);
+
+            const emberPlusEvent = React.createElement('div', emberProps, plusEmber);
+
+            const vote = React.createElement('h1', null, 'Vote for Your JS Library')
+
+            const react = React.createElement('div', {
+                style: {
+                    fontSize: '40px',
+                    paddingTop: '5px'
+                }
+            }, 'React')
+
+            const vue = React.createElement('div', {
+                style: {
+                    fontSize: '40px',
+                    paddingTop: '5px'
+                }
+            }, 'Vue')
+
+            const angular = React.createElement('div', {
+                style: {
+                    fontSize: '40px',
+                    paddingTop: '5px'
+                }
+            }, 'Angular')
+
+            const ember = React.createElement('div', {
+                style: {
+                    fontSize: '40px',
+                    paddingTop: '5px'
+                }
+            }, 'Ember')
+
+            const reactLib = React.createElement('div',
+                { style : {
+                    border: '3px solid black',
+                    width: '300px',
+                    height: '55px',
+                    padding: '10px',
+                    borderBottom: 'none'
+                }, className: 'library'}, circleReact, react, reactPlusEvent
+                );
+
+            const vueLib = React.createElement('div',
+                { style : {
+                    border: '3px solid black',
+                    width: '300px',
+                    height: '55px',
+                    padding: '10px',
+                    borderBottom: 'none'
+                }, className: 'library'}, circleVue, vue, vuePlusEvent
+                );
+
+            const angularLib = React.createElement('div',
+                { style : {
+                    border: '3px solid black',
+                    width: '300px',
+                    height: '55px',
+                    padding: '10px',
+                    borderBottom: 'none'
+                }, className: 'library'}, circleAngular, angular, angularPlusEvent
+                );
+
+            const emberLib = React.createElement('div',
+                { style : {
+                    border: '3px solid black',
+                    width: '300px',
+                    height: '55px',
+                    padding: '10px'
+                }, className: 'library'}, circleEmber, ember, emberPlusEvent
+                );
+
+            const display = React.createElement('div', null, vote, reactLib, vueLib, angularLib, emberLib)
+
+            ReactDOM.render(display, document.getElementById('app'));
+        </script>
+    </body>
+</html>
